@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Float Input Labels</title>
+		
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+		
+		<!--
+		Coded by Mark Eriksson (http://mark-eriksson.com)
+		Inspired by the design of Shpëtim Ujkani (https://dribbble.com/shots/2591945-Float-Input-Labels)
+		-->
+		
+		<style>
+		/*
+			colours:
+			green: 6ac890
+			grey: 5d6561
+		*/
+			
+			* {
+				box-sizing: border-box;
+				outline: none;
+				-webkit-appearance: none;
+			}
+			
+			body {
+				background-color: #5d6561;
+				font-family: 'Roboto', 'Arial', sans-serif;
+				font-size: 13px;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.line-through-label {
+				text-transform: uppercase;
+				color: #cfcfcf;
+				font-size: 13px;
+				background-color: #ffffff;
+				text-align: center;
+				padding: 3px 6px;
+				position: relative;
+				max-width: 390px;
+				overflow-x: hidden;
+				margin: 30px 0;
+			}
+			
+				.line-through-label .line {
+					height: 1px;
+					width: 100%;
+					display: block;
+					background-color: #cfcfcf;
+					position: absolute;
+					top: 9px;
+					z-index: 1;
+				}
+			
+				.line-through-label span {
+					display: inline-block;
+					padding: 0 10px;
+					background-color: #ffffff;
+					position: relative;
+					z-index: 2;
+				}
+			
+			.green-overlay {
+				background-color: #6ac890;
+				width: 100%;
+				height: 55%;
+				position: absolute;
+			}
+			
+			.modal-window {
+				background-color: #ffffff;
+				max-width: 440px;
+				width: 100%;
+				border: 1px solid #6ac890;
+				border-radius: 6px;
+				box-shadow: 0 24px 78px 11px rgba(0,0,0,.3);
+				left: 50%;
+				top: 35%;
+				position: relative;
+				transform: translateX(-50%);
+			}
+			
+				.modal-window h2 {
+					font-weight: 700;
+					text-align: center;
+					text-transform: uppercase;
+					color: #5d6561;
+					font-size: 20px;
+					margin: 30px 0 25px;
+				}
+
+				.modal-window .modal-controls {
+					margin: 8px 0;
+					padding: 0 25px;
+				}
+
+					.modal-window .modal-controls .modal-control-group {
+						margin: 15px 0;
+						position: relative;
+					}
+
+					.modal-window .modal-controls .modal-control-group input {
+						border: 2px solid #ebebeb;
+						font-family: 'Roboto', 'Arial', sans-serif;
+						font-size: 16px;
+						width: 100%;
+						padding: 10px 15px;
+						border-radius: 5px;
+						font-weight: 400;
+						color: #b6bab6;
+						transition: all .15s ease-in-out;
+					}
+						
+						.modal-window .modal-controls .modal-control-group input.has-text {
+							border-color: #6ac890;
+						}
+						
+						.modal-window .modal-controls .modal-control-group input.has-text + label {
+							color: #6ac890;
+							font-size: 13px;
+							top: -8px;
+							left: 12px;
+							font-weight: 700;
+							background-color: #ffffff;
+							padding: 0 5px;
+						}
+
+					.modal-window .modal-controls .modal-control-group label {
+						font-size: 18px;
+						pointer-events: none;
+						position: absolute;
+						top: 10px;
+						left: 25px;
+						color: #b6bab6;
+						transition: all .15s ease-in-out;
+					}
+
+				.modal-window .modal-links {
+					text-align: right;
+					color: #6ac890;
+					font-weight: bold;
+					padding: 0 25px;
+				}
+			
+					.modal-window .modal-links a {
+						color: #6ac890;
+						text-decoration: none;
+					}
+			
+				.modal-window .modal-buttons {
+					margin: 30px 0;
+					padding: 0 25px;
+				}
+			
+					.modal-window .modal-buttons .button {
+						width: 100%;
+						background-color: #5d6561;
+						color: #ffffff;
+						font-size: 18px;
+						font-family: 'Roboto', 'Arial', sans-serif;
+						border: none;
+						padding: 12px 0;
+						text-align: center;
+						border-radius: 19px;
+						transition: all .15s ease-in-out;
+					}
+			
+						.modal-window .modal-buttons .button:hover {
+							box-shadow: inset 0 2px 14px -4px rgba(0, 0, 0, .3);
+						}
+
+					.modal-window .modal-buttons .button.green {
+						background-color: #6ac890;
+					}
+			
+			@media (max-width: 414px) {
+				.modal-window {
+					max-width: 390px;
+				}
+			}
+		</style>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-21727306-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-21727306-1');
+		</script>
+	</head>
+	
+	<body>
+		<div class="design-disclaimer" onclick="javascript:this.style.display='none';" style="box-sizing:border-box;top:0;left:0;position:fixed;width:100%;z-index:30;background-color: #eaeaea;text-align: center;padding: 16px;border-bottom: 2px solid #ccc;box-shadow: inset 0 -5px 11px -5px rgba(0,0,0,.3);font: 400 15px/1.6 'Helvetica Neue', Helvetica, Arial, sans-serif;color: #424140;cursor: pointer;">
+			Please be aware this is not a live project. It is a copy of a website by <a href="https://dribbble.com/shots/2591945-Float-Input-Labels" target="_blank" style="color: #2b2a2a;text-decoration: underline;">Shpëtim Ujkani</a> from Dribbble.com<br />Click to hide.
+		</div>
+	
+		<div class="green-overlay">
+			
+			<div class="modal-window">
+				<h2>Sign In</h2>
+				
+				<form action="#" onsubmit="javascript:return false;" autocomplete="off">
+                    <div class="modal-controls">
+                        <div class="modal-control-group">
+                            <input type="email" id="email" value="" autocomplete="off">
+                            <label for="email">E-mail</label>
+                        </div>
+
+                        <div class="modal-control-group">
+                            <input type="password" id="password" value="" autocomplete="off">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-links">
+                        <a href="#" class="modal-link">Forgot your password?</a>
+                    </div>
+
+                    <div class="modal-buttons">
+                        <input type="submit" value="Sign in now" class="button">
+
+                        <div class="line-through-label">
+                            <div class="line"></div>
+                            <span>or</span>
+                        </div>
+
+                        <input type="button" value="Sign in with Google" class="button green">
+                    </div>
+				</form>
+			</div>
+			
+		</div>
+	</body>
+	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function() {
+			$('.modal-window .modal-controls .modal-control-group input').on('focusin focusout', function() {
+				
+				var $self = $(this);
+				
+				if ($self.val() === '' && $self.hasClass('has-text')) {
+					$self.removeClass('has-text');
+				} else {
+					$self.addClass('has-text');															 
+				}
+				
+			});
+		});
+	</script>
+</html>
